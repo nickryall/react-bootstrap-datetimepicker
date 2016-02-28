@@ -13,7 +13,7 @@ export default class DateTimePickerMinutes extends Component {
         (
             <ul className="list-unstyled">
               <li>
-                <span className="btn picker-switch" onClick={this.props.onSwitch} style={{width: "100%"}}><span className="glyphicon glyphicon-time" /></span>
+                <span className="btn picker-switch" onClick={this.props.onSwitch} style={{width: "100%"}}><span className="fa fa-clock-o" /></span>
               </li>
             </ul>
         ) :

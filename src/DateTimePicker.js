@@ -92,7 +92,7 @@ export default class DateTimePicker extends Component {
       return this.props.mode === Constants.MODE_DATETIME ?
           (
               <li>
-                <span className="btn picker-switch" onClick={this.props.togglePicker} style={{width: "100%"}} ><span className={classnames("glyphicon", this.props.showTimePicker ? "glyphicon-calendar" : "glyphicon-time")} /></span>
+                <span className="btn picker-switch" onClick={this.props.togglePicker} style={{width: "100%"}} ><span className={classnames("fa", this.props.showTimePicker ? "fa-calendar" : "fa-clock-o")} /></span>
               </li>
           ) :
           null;

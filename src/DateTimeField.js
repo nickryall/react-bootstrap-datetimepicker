@@ -46,6 +46,7 @@ export default class DateTimeField extends Component {
     direction: PropTypes.string,
     showToday: PropTypes.bool,
     viewMode: PropTypes.string,
+    disabled: PropTypes.bool,
     size: PropTypes.oneOf([Constants.SIZE_SMALL, Constants.SIZE_MEDIUM, Constants.SIZE_LARGE]),
     daysOfWeekDisabled: PropTypes.arrayOf(PropTypes.number)
   }
@@ -54,7 +55,7 @@ export default class DateTimeField extends Component {
       showDatePicker: this.props.mode !== Constants.MODE_TIME,
       showTimePicker: this.props.mode === Constants.MODE_TIME,
       inputFormat: this.resolvePropsInputFormat(),
-      buttonIcon: this.props.mode === Constants.MODE_TIME ? "glyphicon-time" : "glyphicon-calendar",
+      buttonIcon: this.props.mode === Constants.MODE_TIME ? "fa-clock-o" : "fa-calendar",
       widgetStyle: {
         display: "block",
         position: "absolute",
@@ -258,7 +259,7 @@ export default class DateTimeField extends Component {
     let classes, gBCR, offset, placePosition, scrollTop, styles;
     if (this.state.showPicker) {
       return this.closePicker();
-    } else {
+    } else if(!this.props.disabled) {
       this.setState({
         showPicker: true
       });
@@ -375,7 +376,7 @@ export default class DateTimeField extends Component {
             <div className={"input-group date " + this.size()} ref="datetimepicker">
               <input className="form-control" onChange={this.onChange} type="text" value={this.state.inputValue} {...this.props.inputProps}/>
               <span className="input-group-addon" onBlur={this.onBlur} onClick={this.onClick} ref="dtpbutton">
-                <span className={classnames("glyphicon", this.state.buttonIcon)} />
+                <span className={classnames("fa", this.state.buttonIcon)} />
               </span>
             </div>
           </div>
